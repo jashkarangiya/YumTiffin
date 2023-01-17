@@ -5,7 +5,7 @@
     "main": "Hello World.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "nodemon source/app.js"
+        "dev": "nodemon source/app.js -e js,hbs"
     },
     "keywords": [],
     "author": "",
