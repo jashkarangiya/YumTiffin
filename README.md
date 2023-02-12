@@ -1,8 +1,8 @@
-#### Purpose:
+## Purpose:
 
 This is a repo for 4th SEM SGP 
 
-##Author:
+## Author:
 
 👤 **Sangati Chapla**
 
