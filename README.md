@@ -1,6 +1,6 @@
 ## Purpose:
 
-This is a repo for 4th SEM SGP 
+ - This is a repo for 4th SEM SGP 
 
 ## Author:
 
