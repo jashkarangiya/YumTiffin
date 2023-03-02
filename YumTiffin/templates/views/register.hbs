@@ -7,7 +7,19 @@
 <body>
     {{>navbar}}
     <div class="main-container">
-        <h1>This would be our Sign up Page page</h1>
+        <form action="/register" method="POST">
+            <h2>Registeration Form</h2>
+            <label for="phone">First Name:</label> <input type="text" id="firstName" name="firstName"> <br>
+            <label for="phone">Last Name:</label> <input type="text" id="firstName" name="lastName"> <br>
+            <label for="phone">Phone number:</label> <input type="tel" id="phone" name="phone" > <br>
+            <label for="phone">Email:</label><input type="email" name="email" id="email"><br>
+            <label for="phone">Password: </label> <input type="password" name="password" id="pasword"><br>
+            <label for="phone">Re-enter your password:</label> <input type="password" name="password" id="confirmPassword"><br>
+
+            <input type="checkbox" name="remeberMe" id="rememberMe"><label for="remeberMe">Remember Me</label>
+        
+            <button id="submit" class="btnRegister" value="Register">Submit</button>
+        </form>
     </div>
 </body>
 </html>
