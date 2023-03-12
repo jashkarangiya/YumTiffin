@@ -73,6 +73,8 @@ app.post("/register", async(req, res) => {
 })
 
 
+
+
 app.get("/register", (req, res) => {
     res.render("register")
 })
@@ -81,6 +83,25 @@ app.get("/register", (req, res) => {
 
 app.get("/login", (req, res) => {
     res.render("login")
+})
+
+// login check 
+
+app.post("/login", async(req, res) => {
+    try {
+        const email = req.body.email;
+        const password = req.body.password;
+
+        const userEmail = await Register.findOne({ email: email });
+
+        if (userEmail.password === password) {
+            res.status(201).render("index");
+        } else {
+            res.send("invalid login details!!")
+        }
+    } catch (error) {
+        res.status(400).send("Invalid login details")
+    }
 })
 
 //Redirecting to about us page
