@@ -16,7 +16,6 @@ const usersSchema = new mongoose.Schema({
     phoneNumber: {
         type: Number,
         required: true,
-        max: 10
     },
 
     email: {
