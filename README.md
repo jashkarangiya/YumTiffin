@@ -1,6 +1,6 @@
-## Purpose:
+### Purpose:
 
- - This is a repo for 4th SEM SGP 
+- This is a repo for 4th SEM SGP 
 
 ## Author:
 
@@ -25,7 +25,7 @@
 
 👤 **Jash Karangiya**
 
-* Website: -
+* Website: [Jash Karangiya](https://github.com/jashkarangiya)
 * Twitter: [@JashKarangiya](https://twitter.com/JashKarangiya)
 * Github: [@jashkarangiya](https://github.com/jashkarangiya)
 * LinkedIn:[@Jash Karangiya](https://www.linkedin.com/in/jash-karangiya-2802aa228/)
