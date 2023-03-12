@@ -48,8 +48,24 @@ app.get("/", (req, res) => {
 
 app.post("/register", async(req, res) => {
     try {
-        console.log(req.body.firstName);
-        res.send(req.body.firstName);
+        const password = req.body.password;
+        const cPassword = req.body.confirmPassword;
+
+        if (password === cPassword) {
+            const registerCustomers = new Register({
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                phoneNumber: req.body.phoneNumber,
+                email: req.body.email,
+                password: password,
+                confirmPassword: cPassword
+            })
+            const registered = await registerCustomers.save();
+            res.status(201).render("login");
+        } else {
+            alert("Password not matching!!")
+        }
+
     } catch (error) {
         res.status(400).send(error);
     }
