@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
 
 const usersSchema = new mongoose.Schema({
     firstName: {
@@ -40,6 +41,20 @@ const usersSchema = new mongoose.Schema({
     }
 
 
+})
+
+// Hasing the password
+
+usersSchema.pre("save", async function(next) {
+
+    if (this.isModified("password")) {
+        this.password = await bcrypt.hash(this.password, 10);
+
+        this.confirmPassword = undefined;
+    }
+    // const passwordHash = await bcrypt.hash(password, 10);
+
+    next();
 })
 
 // Creating collections:

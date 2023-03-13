@@ -19,6 +19,7 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const hbs = require("hbs");
+const bcrypt = require("bcryptjs")
 
 // dotenv.config();
 
@@ -46,6 +47,7 @@ app.get("/", (req, res) => {
 
 });
 
+// enter the data from login to db
 app.post("/register", async(req, res) => {
     try {
         const password = req.body.password;
@@ -72,6 +74,7 @@ app.post("/register", async(req, res) => {
 
 })
 
+// Hasing my passwords
 
 
 
@@ -94,7 +97,9 @@ app.post("/login", async(req, res) => {
 
         const userEmail = await Register.findOne({ email: email });
 
-        if (userEmail.password === password) {
+        const isMatch = await bcrypt.compare(password, userEmail.password);
+
+        if (isMatch) {
             res.status(201).render("index");
         } else {
             res.send("invalid login details!!")
@@ -113,6 +118,9 @@ app.get("/about", (req, res) => {
 app.use(function(req, res) {
     res.status(404).render('notFound');
 });
+
+
+
 
 app.listen(port, () => {
     console.log(`Server is running at port no ${port}`);
