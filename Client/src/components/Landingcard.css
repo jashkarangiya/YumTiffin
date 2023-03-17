@@ -1,0 +1,29 @@
+#img
+{
+    height: 100px;
+    width: 100px;
+    margin: auto;
+    
+}
+
+.card
+{
+    width: 10%;
+    margin: 30px;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+}
+
+
+.titles
+{
+    padding: 0;
+    text-align: center;
+    font-size: 22px;
+    margin-top: 20px;
+    font-weight: bold;
+    color:rgb(64, 64, 64);
+    letter-spacing: 3px;
+ 
+}

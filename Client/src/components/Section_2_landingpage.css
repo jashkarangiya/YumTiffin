@@ -1,0 +1,22 @@
+.section_2
+{
+    height: 100%;
+}
+
+*
+{
+    box-sizing:border-box;
+    font-family: Jost;
+    overflow-x: hidden;
+
+}
+
+.round_thali
+{
+    position: absolute;
+    right: 30px;
+    margin: 5px ;
+    height: 750px;
+    width: 750px;
+}
+

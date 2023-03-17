@@ -1,0 +1,56 @@
+.Title
+{
+    padding-top: 50px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-left: 90px;
+    position: relative;
+    width: 67vw;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 230px;
+    
+
+}
+.italic
+{
+    font-style: italic;
+    text-align: center;
+    font-weight: 700;
+    font-size: 48px;
+    letter-spacing:4px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    vertical-align: baseline;
+    color: #FF8810;
+}
+
+.regular
+{
+   font-weight: 200;
+    font-size: 36px;
+    text-align: center;
+    letter-spacing:4px;
+    padding-top: 22px;
+    padding-left: 15px;
+    padding-right: 15px;
+    vertical-align: baseline;
+    
+}
+
+.steps
+{
+    padding: 20px;
+    
+}
+.text
+{
+    justify-content: end;
+}
+
+.content
+{
+    display: block;
+    
+}
