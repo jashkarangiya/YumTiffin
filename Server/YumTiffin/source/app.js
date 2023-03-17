@@ -19,6 +19,8 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const hbs = require("hbs");
+const bcrypt = require("bcryptjs")
+    // const jwt = require("jsonwebtoken")
 
 // dotenv.config();
 
@@ -46,6 +48,7 @@ app.get("/", (req, res) => {
 
 });
 
+// enter the data from login to db
 app.post("/register", async(req, res) => {
     try {
         const password = req.body.password;
@@ -60,10 +63,15 @@ app.post("/register", async(req, res) => {
                 password: password,
                 confirmPassword: cPassword
             })
+
+            console.log("the success part: " + registerCustomers);
+            const token = await registerCustomers.generateAuthToken();
+            console.log(token);
+
             const registered = await registerCustomers.save();
             res.status(201).render("login");
         } else {
-            alert("Password not matching!!")
+            res.send("Password not matching!!")
         }
 
     } catch (error) {
@@ -71,6 +79,7 @@ app.post("/register", async(req, res) => {
     }
 
 })
+
 
 
 app.get("/register", (req, res) => {
@@ -83,6 +92,25 @@ app.get("/login", (req, res) => {
     res.render("login")
 })
 
+// login check  
+app.post("/login", async(req, res) => {
+    try {
+        const email = req.body.email;
+        const password = req.body.password;
+
+        const userEmail = await Register.findOne({ email: email });
+        const isMatch = await bcrypt.compare(password, userEmail.password);
+
+        if (isMatch) {
+            res.status(201).render("index");
+        } else {
+            res.send("invalid login details!!")
+        }
+    } catch (error) {
+        res.status(400).send("Invalid login details")
+    }
+})
+
 //Redirecting to about us page
 app.get("/about", (req, res) => {
     res.render("aboutUs")
@@ -92,6 +120,9 @@ app.get("/about", (req, res) => {
 app.use(function(req, res) {
     res.status(404).render('notFound');
 });
+
+
+
 
 app.listen(port, () => {
     console.log(`Server is running at port no ${port}`);
