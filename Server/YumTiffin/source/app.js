@@ -20,6 +20,7 @@ const path = require("path");
 const app = express();
 const hbs = require("hbs");
 const bcrypt = require("bcryptjs")
+    // const jwt = require("jsonwebtoken")
 
 // dotenv.config();
 
@@ -62,10 +63,15 @@ app.post("/register", async(req, res) => {
                 password: password,
                 confirmPassword: cPassword
             })
+
+            console.log("the success part: " + registerCustomers);
+            const token = await registerCustomers.generateAuthToken();
+            console.log(token);
+
             const registered = await registerCustomers.save();
             res.status(201).render("login");
         } else {
-            alert("Password not matching!!")
+            res.send("Password not matching!!")
         }
 
     } catch (error) {
@@ -73,8 +79,6 @@ app.post("/register", async(req, res) => {
     }
 
 })
-
-// Hasing my passwords
 
 
 
@@ -88,15 +92,13 @@ app.get("/login", (req, res) => {
     res.render("login")
 })
 
-// login check 
-
+// login check  
 app.post("/login", async(req, res) => {
     try {
         const email = req.body.email;
         const password = req.body.password;
 
         const userEmail = await Register.findOne({ email: email });
-
         const isMatch = await bcrypt.compare(password, userEmail.password);
 
         if (isMatch) {
