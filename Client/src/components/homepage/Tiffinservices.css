@@ -1,0 +1,27 @@
+.total-tiffins
+{
+    font-size: 24px;
+    margin-right: 10px;
+    color: rgb(77, 77, 77);
+}
+
+.tiffinservices
+{
+    font-size: 24px;
+    color: rgb(77, 77, 77);
+}
+.tiffin-count-cont
+{
+    margin: 20px;
+    margin-left: 50px;
+}
+.tiffins-flex
+{
+    display: flex;
+    justify-content: center;
+}
+#tiff
+{
+    width: 100%;
+
+}

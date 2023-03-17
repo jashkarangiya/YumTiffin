@@ -1,0 +1,65 @@
+*{
+    box-sizing: border-box;
+}
+
+.slogan
+{
+    padding-top: 70px;
+    position: relative;
+    color: white;
+    width: 67vw;
+    margin: auto;
+    
+
+}
+
+.Firstline,.Secondline
+{
+    
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+.section1_italic
+{
+    font-style: italic;
+    text-align: center;
+    font-weight: 700;
+    font-size: 48px;
+    display: flex;
+    letter-spacing:4px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    vertical-align: baseline;
+}
+
+.section1_regular
+{
+   font-weight: 200;
+    font-size: 36px;
+    text-align: center;
+    display: flex;
+    letter-spacing:4px;
+    padding-top: 22px;
+    padding-left: 15px;
+    padding-right: 15px;
+    vertical-align: baseline;
+
+    
+}
+
+#secondreg
+{
+    font-weight: 200;
+    font-size: 36px;
+    text-align: center;
+    display: flex;
+    letter-spacing:4px;
+    padding-left: 15px;
+    padding-right: 15px;
+    vertical-align: baseline;
+}
