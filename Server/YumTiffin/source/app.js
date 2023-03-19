@@ -20,7 +20,7 @@ const path = require("path");
 const app = express();
 const hbs = require("hbs");
 const bcrypt = require("bcryptjs")
-    // const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken")
 
 // dotenv.config();
 
@@ -56,6 +56,7 @@ app.post("/register", async(req, res) => {
 
         if (password === cPassword) {
             const registerCustomers = new Register({
+
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
                 phoneNumber: req.body.phoneNumber,
@@ -66,7 +67,7 @@ app.post("/register", async(req, res) => {
 
             console.log("the success part: " + registerCustomers);
             const token = await registerCustomers.generateAuthToken();
-            console.log(token);
+            // console.log(`The required token is ${token}`);
 
             const registered = await registerCustomers.save();
             res.status(201).render("login");
