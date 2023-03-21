@@ -70,6 +70,7 @@ app.post("/register", async(req, res) => {
             // console.log(`The required token is ${token}`);
 
             const registered = await registerCustomers.save();
+            console.log(`The page part ${registerCustomers}`);
             res.status(201).render("login");
         } else {
             res.send("Password not matching!!")
