@@ -14,20 +14,27 @@
 // import { error } from "console";
 // // import { verifyToken } from "./middleware/auth.js";
 
+require('dotenv').config();
 
 const express = require("express");
 const path = require("path");
 const app = express();
 const hbs = require("hbs");
-const bcrypt = require("bcryptjs")
-const jwt = require("jsonwebtoken")
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const cookieParser = require('cookie-parser');
 
-// dotenv.config();
+
 
 require("./db/conn.js");
 const Register = require("./models/registers");
 
+// Middlewares
+const auth = require('./middleware/auth');
+const { log } = require('console');
+
 const port = process.env.PORT || 3000;
+const expires = process.env.JWT_Expires;
 
 // All the paths required for web
 const static_path = path.join(__dirname, "../public");
@@ -35,6 +42,7 @@ const templates_path = path.join(__dirname, "../templates/views");
 const partials_path = path.join(__dirname, "../templates/partials");
 
 app.use(express.json());
+app.use(cookieParser())
 app.use(express.urlencoded({ extended: false }))
 
 app.use(express.static(static_path));
@@ -47,6 +55,27 @@ app.get("/", (req, res) => {
     res.render("index")
 
 });
+
+app.get("/secret", auth, (req, res) => {
+    // console.log(`Cookie: ${req.cookies.jwt}`);
+    res.render("secret")
+
+});
+
+app.get("/logout", auth, async(req, res) => {
+    try {
+        // console.log(req.user);
+        console.log(`Loggout out from ${req.user.firstName}'s account!!`);
+        res.clearCookie('jwt');
+
+
+        await req.user.save();
+        res.render("login")
+    } catch (error) {
+        res.status(500).send(error);
+    }
+});
+
 
 // enter the data from login to db
 app.post("/register", async(req, res) => {
@@ -66,11 +95,18 @@ app.post("/register", async(req, res) => {
             })
 
             console.log("the success part: " + registerCustomers);
+
             const token = await registerCustomers.generateAuthToken();
-            // console.log(`The required token is ${token}`);
+            console.log(`The required token is ${token}`);
+
+            console.log("Ahi too pochi gayo!")
+
+
+            // console.log(cookie);
 
             const registered = await registerCustomers.save();
-            console.log(`The page part ${registerCustomers}`);
+            // console.log(`The page part ${registerCustomers}`);
+
             res.status(201).render("login");
         } else {
             res.send("Password not matching!!")
@@ -103,13 +139,28 @@ app.post("/login", async(req, res) => {
         const userEmail = await Register.findOne({ email: email });
         const isMatch = await bcrypt.compare(password, userEmail.password);
 
+        const token = await userEmail.generateAuthToken();
+        console.log(`The required token is ${token}`);
+
+        // Creating cookies
+        res.cookie("jwt", token, {
+            expires: process.env.JWT_Expires,
+            httpOnly: true
+        });
+
+        // console.log("Hu ahi pochu chu!");
+        // console.log(`Cookie: ${req.cookies.jwt}`);
+
+
         if (isMatch) {
             res.status(201).render("index");
         } else {
             res.send("invalid login details!!")
         }
     } catch (error) {
+        console.log(error)
         res.status(400).send("Invalid login details")
+            // res.status(201).render("index");
     }
 })
 
