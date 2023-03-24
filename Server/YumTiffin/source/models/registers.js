@@ -40,10 +40,16 @@ const usersSchema = new mongoose.Schema({
 
     confirmPassword: {
         type: String,
-        required: true,
+        // required: true,
         min: 8,
         max: 20
-    }
+    },
+    tokens: [{
+        token: {
+            type: String,
+            required: true
+        }
+    }]
 
 
 })
@@ -52,15 +58,15 @@ const usersSchema = new mongoose.Schema({
 // generating functions
 usersSchema.methods.generateAuthToken = async function() {
     try {
-        console.log(this._id);
-        const token = jwt.sign({ _id: this._id }, process.env.JWT_SECRET);
-        console.log("The required token is " + token);
+        // console.log(this._id);
+        const token = jwt.sign({ _id: this._id.toString() }, process.env.JWT_SECRET);
+        this.tokens = this.tokens.concat({ token: token })
+            // console.log("The required token is " + token);
+        await this.save();
 
         return token;
-
-
     } catch (error) {
-        res.send("The error part " + error);
+        // res.send("The error part " + error);
         console.log("The error part " + error);
     }
 }
@@ -71,8 +77,7 @@ usersSchema.pre("save", async function(next) {
 
     if (this.isModified("password")) {
         this.password = await bcrypt.hash(this.password, 10);
-        console.log(`the current password is ${this.password}`);
-        this.confirmPassword = undefined;
+        this.confirmPassword = await bcrypt.hash(this.password, 10);
     }
     // const passwordHash = await bcrypt.hash(password, 10);
     next();
