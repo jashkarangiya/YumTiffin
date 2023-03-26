@@ -1,19 +1,3 @@
-// import express from "express";
-// import bodyParser from "body-parser";
-// import mongoose from "mongoose";
-// import cors from "cors";
-// import dotenv from "dotenv";
-// import multer from "multer";
-// import helmet from "helmet";
-// import morgan from "morgan";
-// import path from "path";
-// import { register } from "./models/registers"
-// import { fileURLToPath } from "url";
-// // import authRoutes from "./routes/auth.js";
-// // import userRoutes from "./routes/users.js";
-// import { error } from "console";
-// // import { verifyToken } from "./middleware/auth.js";
-
 require('dotenv').config();
 
 const express = require("express");
@@ -28,6 +12,7 @@ const cookieParser = require('cookie-parser');
 
 require("./db/conn.js");
 const Register = require("./models/registers");
+const Profile = require('./models/profile');
 
 // Middlewares
 const auth = require('./middleware/auth');
@@ -65,7 +50,7 @@ app.get("/secret", auth, (req, res) => {
 app.get("/logout", auth, async(req, res) => {
     try {
         // console.log(req.user);
-        console.log(`Loggout out from ${req.user.firstName}'s account!!`);
+        console.log(`Logged-out out from ${req.user.firstName}'s account!!`);
         res.clearCookie('jwt');
 
 
@@ -94,12 +79,12 @@ app.post("/register", async(req, res) => {
                 confirmPassword: cPassword
             })
 
-            console.log("the success part: " + registerCustomers);
+            // console.log("the success part: " + registerCustomers);
 
             const token = await registerCustomers.generateAuthToken();
-            console.log(`The required token is ${token}`);
+            // console.log(`The required token is ${token}`);
 
-            console.log("Ahi too pochi gayo!")
+            // console.log("Ahi too pochi gayo!")
 
 
             // console.log(cookie);
@@ -140,7 +125,7 @@ app.post("/login", async(req, res) => {
         const isMatch = await bcrypt.compare(password, userEmail.password);
 
         const token = await userEmail.generateAuthToken();
-        console.log(`The required token is ${token}`);
+        // console.log(`The required token is ${token}`);
 
         // Creating cookies
         res.cookie("jwt", token, {
@@ -168,6 +153,10 @@ app.post("/login", async(req, res) => {
 app.get("/about", (req, res) => {
     res.render("aboutUs")
 })
+
+// app.get("/home", (req, res) => {
+
+//         }
 
 //Redirecting to error page
 app.use(function(req, res) {
