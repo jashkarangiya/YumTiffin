@@ -6,10 +6,10 @@ const auth = async(req, res, next) => {
         console.log("Hello from auth");
         const token = req.cookies.jwt;
         const verifyUser = jwt.verify(token, process.env.JWT_SECRET);
-        console.log(verifyUser);
+        // console.log(verifyUser);
 
         const user = await Register.findOne({ _id: verifyUser._id });
-        console.log(user.firstName);
+        // console.log(user.firstName);
 
         req.token = token;
         req.user = user;
