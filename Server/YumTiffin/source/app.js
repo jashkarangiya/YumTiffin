@@ -13,6 +13,7 @@ const cookieParser = require('cookie-parser');
 require("./db/conn.js");
 const Register = require("./models/registers");
 const Profile = require('./models/profile');
+const Services = require("./models/tiffinService");
 
 // Middlewares
 const auth = require('./middleware/auth');
@@ -36,6 +37,7 @@ app.set("views", templates_path);
 hbs.registerPartials(partials_path);
 
 
+
 app.get("/", (req, res) => {
     res.render("index")
 
@@ -55,7 +57,7 @@ app.get("/logout", auth, async(req, res) => {
 
 
         await req.user.save();
-        res.render("login")
+        res.redirect("login")
     } catch (error) {
         res.status(500).send(error);
     }
@@ -82,11 +84,9 @@ app.post("/register", async(req, res) => {
             // console.log("the success part: " + registerCustomers);
 
             const token = await registerCustomers.generateAuthToken();
+
             // console.log(`The required token is ${token}`);
-
             // console.log("Ahi too pochi gayo!")
-
-
             // console.log(cookie);
 
             const registered = await registerCustomers.save();
@@ -115,6 +115,8 @@ app.get("/login", (req, res) => {
     res.render("login")
 })
 
+
+
 // login check  
 app.post("/login", async(req, res) => {
     try {
@@ -125,7 +127,6 @@ app.post("/login", async(req, res) => {
         const isMatch = await bcrypt.compare(password, userEmail.password);
 
         const token = await userEmail.generateAuthToken();
-        // console.log(`The required token is ${token}`);
 
         // Creating cookies
         res.cookie("jwt", token, {
@@ -138,7 +139,8 @@ app.post("/login", async(req, res) => {
 
 
         if (isMatch) {
-            res.status(201).render("index");
+            // console.log(req.user);
+            res.status(201).redirect("home");
         } else {
             res.send("invalid login details!!")
         }
@@ -154,16 +156,50 @@ app.get("/about", (req, res) => {
     res.render("aboutUs")
 })
 
-// app.get("/home", (req, res) => {
+//Redirecting to home page
+app.get("/home", auth, (req, res) => {
+    if (auth) {
+        console.log(req.user.firstName);
+        // const newUser = new Profile({
+        //     firstName: req.user.firstName
+        // })
+        // console.log(firstName);
 
-//         }
+        // new profile = newUser.save();
+        res.render("home", { data: req.user.firstName });
+    } else {
+        console.log(req.cookies.jwt);
+        res.status(400).send("Please login!")
+    }
+
+})
+
+//Redirecting to profile page
+app.get("/profile", auth, async(req, res) => {
+
+    try {
+        // console.log(`Name: ${req.user.firstName}`);
+
+        res.render("profile", {
+            post: {
+                firstName: req.user.firstName,
+                lastName: req.user.lastName,
+                phoneNumber: req.user.phoneNumber,
+                email: req.user.email
+            }
+        })
+    } catch (error) {
+        res.status(500).send(error);
+
+    }
+
+
+})
 
 //Redirecting to error page
 app.use(function(req, res) {
     res.status(404).render('notFound');
 });
-
-
 
 
 app.listen(port, () => {

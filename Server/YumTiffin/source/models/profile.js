@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 require('dotenv').config();
 
 
-// Decalring the user schema
+// Declaring the profile schema
 const profileSchema = new mongoose.Schema({
     firstName: {
         type: String,
