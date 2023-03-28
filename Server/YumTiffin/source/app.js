@@ -15,12 +15,15 @@ const Register = require("./models/registers");
 const Profile = require('./models/profile');
 const Services = require("./models/tiffinService");
 
+
+
 // Middlewares
 const auth = require('./middleware/auth');
 const { log } = require('console');
 
 const port = process.env.PORT || 3000;
-const expires = process.env.JWT_Expires;
+const expires = process.env.JWT_expiresIn;
+
 
 // All the paths required for web
 const static_path = path.join(__dirname, "../public");
@@ -54,7 +57,6 @@ app.get("/logout", auth, async(req, res) => {
         // console.log(req.user);
         console.log(`Logged-out out from ${req.user.firstName}'s account!!`);
         res.clearCookie('jwt');
-
 
         await req.user.save();
         res.redirect("login")
@@ -127,10 +129,10 @@ app.post("/login", async(req, res) => {
         const isMatch = await bcrypt.compare(password, userEmail.password);
 
         const token = await userEmail.generateAuthToken();
-
+        console.log(`Expires in: ${process.env.JWT_Expires * 90 * 24 * 60 * 60 * 1000}`);
         // Creating cookies
         res.cookie("jwt", token, {
-            expires: process.env.JWT_Expires,
+            expires: new Date(Date.now() + process.env.JWT_Expires * 90 * 24 * 60 * 60 * 1000),
             httpOnly: true
         });
 
@@ -206,5 +208,4 @@ app.listen(port, () => {
     console.log(`Server is running at port no ${port}`);
 })
 
-// 
 // app.use(express.favicon("../templates/images/Tiffin.png"));
