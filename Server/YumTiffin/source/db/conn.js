@@ -11,3 +11,5 @@ mongoose.connect(MONGO_URL)
         console.log(`DB connection is Failed!`)
         console.log(error);
     })
+
+// YumTiffinDB.services.insert()

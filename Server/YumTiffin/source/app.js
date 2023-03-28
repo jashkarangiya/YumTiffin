@@ -13,13 +13,17 @@ const cookieParser = require('cookie-parser');
 require("./db/conn.js");
 const Register = require("./models/registers");
 const Profile = require('./models/profile');
+const Services = require("./models/tiffinService");
+
+
 
 // Middlewares
 const auth = require('./middleware/auth');
 const { log } = require('console');
 
 const port = process.env.PORT || 3000;
-const expires = process.env.JWT_Expires;
+const expires = process.env.JWT_expiresIn;
+
 
 // All the paths required for web
 const static_path = path.join(__dirname, "../public");
@@ -34,6 +38,7 @@ app.use(express.static(static_path));
 app.set("view engine", ".hbs");
 app.set("views", templates_path);
 hbs.registerPartials(partials_path);
+
 
 
 app.get("/", (req, res) => {
@@ -53,9 +58,8 @@ app.get("/logout", auth, async(req, res) => {
         console.log(`Logged-out out from ${req.user.firstName}'s account!!`);
         res.clearCookie('jwt');
 
-
         await req.user.save();
-        res.render("login")
+        res.redirect("login")
     } catch (error) {
         res.status(500).send(error);
     }
@@ -82,11 +86,9 @@ app.post("/register", async(req, res) => {
             // console.log("the success part: " + registerCustomers);
 
             const token = await registerCustomers.generateAuthToken();
+
             // console.log(`The required token is ${token}`);
-
             // console.log("Ahi too pochi gayo!")
-
-
             // console.log(cookie);
 
             const registered = await registerCustomers.save();
@@ -115,6 +117,8 @@ app.get("/login", (req, res) => {
     res.render("login")
 })
 
+
+
 // login check  
 app.post("/login", async(req, res) => {
     try {
@@ -125,11 +129,10 @@ app.post("/login", async(req, res) => {
         const isMatch = await bcrypt.compare(password, userEmail.password);
 
         const token = await userEmail.generateAuthToken();
-        // console.log(`The required token is ${token}`);
-
+        console.log(`Expires in: ${process.env.JWT_Expires * 90 * 24 * 60 * 60 * 1000}`);
         // Creating cookies
         res.cookie("jwt", token, {
-            expires: process.env.JWT_Expires,
+            expires: new Date(Date.now() + process.env.JWT_Expires * 90 * 24 * 60 * 60 * 1000),
             httpOnly: true
         });
 
@@ -138,7 +141,8 @@ app.post("/login", async(req, res) => {
 
 
         if (isMatch) {
-            res.status(201).render("index");
+            // console.log(req.user);
+            res.status(201).redirect("home");
         } else {
             res.send("invalid login details!!")
         }
@@ -154,9 +158,45 @@ app.get("/about", (req, res) => {
     res.render("aboutUs")
 })
 
-// app.get("/home", (req, res) => {
+//Redirecting to home page
+app.get("/home", auth, (req, res) => {
+    if (auth) {
+        console.log(req.user.firstName);
+        // const newUser = new Profile({
+        //     firstName: req.user.firstName
+        // })
+        // console.log(firstName);
 
-//         }
+        // new profile = newUser.save();
+        res.render("home", { data: req.user.firstName });
+    } else {
+        console.log(req.cookies.jwt);
+        res.status(400).send("Please login!")
+    }
+
+})
+
+//Redirecting to profile page
+app.get("/profile", auth, async(req, res) => {
+
+    try {
+        // console.log(`Name: ${req.user.firstName}`);
+
+        res.render("profile", {
+            post: {
+                firstName: req.user.firstName,
+                lastName: req.user.lastName,
+                phoneNumber: req.user.phoneNumber,
+                email: req.user.email
+            }
+        })
+    } catch (error) {
+        res.status(500).send(error);
+
+    }
+
+
+})
 
 //Redirecting to error page
 app.use(function(req, res) {
@@ -164,11 +204,8 @@ app.use(function(req, res) {
 });
 
 
-
-
 app.listen(port, () => {
     console.log(`Server is running at port no ${port}`);
 })
 
-// 
 // app.use(express.favicon("../templates/images/Tiffin.png"));
