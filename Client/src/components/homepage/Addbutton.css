@@ -1,0 +1,11 @@
+#add-button
+{
+    margin-top: 25px;
+    padding: 2px 25px;
+    border: 1px solid rgb(168, 167, 167);
+    background-color: white;
+    border-radius: 4px;
+    color: orange;
+    font-weight: 700;
+    letter-spacing: 1px;
+}

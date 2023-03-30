@@ -14,6 +14,7 @@ export default class TiffinCard extends PureComponent {
         <>
       <div className='main-container'>
         <div className='card-cont'>
+            <a href='/info' id='tiffin-anchor'>
             <div className='card-img'>
                 <img src={tiffin1} id='cimg'></img>
             </div>
@@ -30,8 +31,12 @@ export default class TiffinCard extends PureComponent {
                 </p>
                 
             </div>
+            </a>
+            
         </div>
+        <div class="card-details">I am shown when someone hovers over the div above.</div>
         <div className='card-cont'>
+        <a href='/info' id='tiffin-anchor'>
             <div className='card-img'>
                 <img src={thali3} id='cimg'></img>
             </div>
@@ -47,8 +52,10 @@ export default class TiffinCard extends PureComponent {
                     QUICK VIEW
                 </p>
             </div>
+            </a>
         </div>
         <div className='card-cont'>
+        <a href='/info' id='tiffin-anchor'>
             <div className='card-img'>
                 <img src={thali4} id='cimg'></img>
             </div>
@@ -64,8 +71,10 @@ export default class TiffinCard extends PureComponent {
                     QUICK VIEW
                 </p>
             </div>
+            </a>
         </div>
         <div className='card-cont'>
+        <a href='/info' id='tiffin-anchor'>
             <div className='card-img'>
                 <img src={thali5} id='cimg'></img>
             </div>
@@ -81,8 +90,10 @@ export default class TiffinCard extends PureComponent {
                     QUICK VIEW
                 </p>
             </div>
+            </a>
         </div>
         <div className='card-cont'>
+        <a href='/info' id='tiffin-anchor'>
             <div className='card-img'>
                 <img src={thali6} id='cimg'></img>
             </div>
@@ -98,8 +109,10 @@ export default class TiffinCard extends PureComponent {
                     QUICK VIEW
                 </p>
             </div>
+            </a>
         </div>
         <div className='card-cont'>
+        <a href='/info' id='tiffin-anchor'>
             <div className='card-img'>
                 <img src={thali7} id='cimg'></img>
             </div>
@@ -115,8 +128,10 @@ export default class TiffinCard extends PureComponent {
                     QUICK VIEW
                 </p>
             </div>
+            </a>
         </div>
         <div className='card-cont'>
+        <a href='/info' id='tiffin-anchor'>
             <div className='card-img'>
                 <img src={thali8} id='cimg'></img>
             </div>
@@ -132,8 +147,10 @@ export default class TiffinCard extends PureComponent {
                     QUICK VIEW
                 </p>
             </div>
+            </a>
         </div>
         <div className='card-cont'>
+        <a href='/info' id='tiffin-anchor'>
             <div className='card-img'>
                 <img src={thali9} id='cimg'></img>
             </div>
@@ -149,8 +166,10 @@ export default class TiffinCard extends PureComponent {
                     QUICK VIEW
                 </p>
             </div>
+            </a>
         </div>
         <div className='card-cont'>
+        <a href='/info' id='tiffin-anchor'>
             <div className='card-img'>
                 <img src={tiffin1} id='cimg'></img>
             </div>
@@ -166,8 +185,10 @@ export default class TiffinCard extends PureComponent {
                     QUICK VIEW
                 </p>
             </div>
+            </a>
         </div>
         <div className='card-cont'>
+        <a href='/info' id='tiffin-anchor'>
             <div className='card-img'>
                 <img src={tiffin1} id='cimg'></img>
             </div>
@@ -183,8 +204,10 @@ export default class TiffinCard extends PureComponent {
                     QUICK VIEW
                 </p>
             </div>
+            </a>
         </div>
         <div className='card-cont'>
+        <a href='/info' id='tiffin-anchor'>
             <div className='card-img'>
                 <img src={tiffin1} id='cimg'></img>
             </div>
@@ -200,8 +223,10 @@ export default class TiffinCard extends PureComponent {
                     QUICK VIEW
                 </p>
             </div>
+            </a>
         </div>
         <div className='card-cont'>
+        <a href='/info' id='tiffin-anchor'>
             <div className='card-img'>
                 <img src={tiffin1} id='cimg'></img>
             </div>
@@ -217,6 +242,7 @@ export default class TiffinCard extends PureComponent {
                     QUICK VIEW
                 </p>
             </div>
+            </a>
         </div>
       </div>
       </>

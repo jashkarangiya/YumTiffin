@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import Loginpage from './components/Loginpage';
 import Signuppage from './components/Signuppage';
+import Tiffininfopage from './components/homepage/Tiffininfopage';
 
 
 const router = createBrowserRouter([
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
     path: "/signup",
     element: <Signuppage/>,
   },
+  {
+    path: "/info",
+    element: <Tiffininfopage/>,
+  }
   
 ]);
 

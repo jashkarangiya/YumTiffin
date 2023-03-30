@@ -8,10 +8,43 @@
     border-radius: 19px;
     padding: 0%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
 
 
     
 }
+*
+{
+    font-family: jost;
+}
+.card-details {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: left 0.3s ease-in-out;
+  }
+  .card-cont:hover .card-details {
+    left: 0;
+  }
+
+  .quickview
+  {
+      font-weight: 600;
+      text-align: center;
+      font-size: smaller;
+      letter-spacing: 0.5px;
+      color: #FF8810;
+      cursor: pointer;
+  }
+  .quickview:hover .card-details
+  {
+    display: block;
+  }
 .main-container
 {
     display: flex;
@@ -46,6 +79,7 @@
     letter-spacing: 0.5px;
     margin-bottom: 0;
     font-size: 18px;
+    color: black;
 }
 
 .foodtype
@@ -63,16 +97,10 @@
 {
     margin-left: 20px;
     margin-right: 20px;
+    color: gray;
 }
 
-.quickview
-{
-    font-weight: 600;
-    text-align: center;
-    font-size: smaller;
-    letter-spacing: 0.5px;
-    color: #FF8810;
-}
+
 
 .quickview-menu{
     height: 400px;
@@ -89,3 +117,8 @@
     transform: translateY(0);
   }
   
+  #tiffin-anchor
+{
+    text-decoration: none;
+    
+}
