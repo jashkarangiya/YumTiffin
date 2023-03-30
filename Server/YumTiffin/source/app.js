@@ -14,6 +14,7 @@ require("./db/conn.js");
 const Register = require("./models/registers");
 const Profile = require('./models/profile');
 const Services = require("./models/tiffinService");
+const services = require('./db/data/services');
 
 
 
@@ -82,8 +83,6 @@ app.post("/register", async(req, res) => {
                 password: password,
                 confirmPassword: cPassword
             })
-
-            // console.log("the success part: " + registerCustomers);
 
             const token = await registerCustomers.generateAuthToken();
 
@@ -161,7 +160,14 @@ app.get("/about", (req, res) => {
 //Redirecting to home page
 app.get("/home", auth, (req, res) => {
     if (auth) {
+        Services.find({ city: "Ahemdabad" }, function(err, Services) {
+            if (err) console.warn(err);
+            console.warn(services);
+        });
+
+        // console.log(req.services);
         console.log(req.user.firstName);
+        // console.log(req.services.name);
         // const newUser = new Profile({
         //     firstName: req.user.firstName
         // })
