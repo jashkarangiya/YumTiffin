@@ -1,0 +1,83 @@
+#addbutton2 {
+    margin-top: 25px;
+    border: 1px solid rgb(168, 167, 167);
+    background-color: white;
+    border-radius: 4px;
+    color: orange;
+    font-weight: 700;
+    letter-spacing: 1px;
+    position: absolute;
+    width: 30%;
+    line-height: 10px;
+    overflow-y: hidden;
+    padding-top: 10px;
+}
+
+#addbutton2:hover {
+    color: white;
+    background-color: orange;
+}
+
+.placeorder {
+    display: flex;
+    justify-content: center;
+}
+
+#placeorder {
+    margin-top: 30px;
+    padding: 5px 30px;
+    background-color: orange;
+    border: none;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nom1 {
+    margin-top: 25px;
+    display: flex;
+    margin-bottom: 7px;
+    justify-content: space-between;
+}
+
+#from {
+    font-size: 20px;
+    color: gray;
+    font-weight: 700;
+    letter-spacing: 1px;
+    TEXT-ALIGN: initial;
+    MARGIN-LEFT: 50PX;
+    margin-bottom: 10px;
+    margin-right: 10PX;
+}
+
+#from1 {
+    margin-right: 20px;
+}
+
+.from-to {
+    margin-top: 30px;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+#dateinput {
+    color: gray;
+}
+
+#time-head {
+    font-size: 20px;
+    color: gray;
+    font-weight: 700;
+    letter-spacing: 1px;
+    TEXT-ALIGN: initial;
+    MARGIN-LEFT: 50PX;
+    margin-bottom: 10px;
+    margin-right: 20PX;
+}
+
+#react-modal1 {
+    width: 45%;
+    height: 83%;
+    margin: auto;
+}
