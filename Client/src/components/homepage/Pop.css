@@ -1,0 +1,26 @@
+#pop-modal {
+    width: 32%;
+    height: 17%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+#addbutton1:hover {
+    color: white;
+    background-color: orange;
+}
+
+#addbutton1 {
+    margin-top: 25px;
+    border: 1px solid rgb(168, 167, 167);
+    background-color: white;
+    border-radius: 4px;
+    color: orange;
+    font-weight: 700;
+    letter-spacing: 1px;
+    position: absolute;
+    width: 5%;
+    line-height: 10px;
+    overflow-y: hidden;
+}

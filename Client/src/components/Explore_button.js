@@ -6,7 +6,9 @@ export default class extends PureComponent {
     return (
       <div>
         <button type="button" class="btn btn-primary" id='explore_button'>
-          explore</button>
+        <a href="/home" id='explorebutton'>
+            explore
+            </a></button>
       </div>
     )
   }

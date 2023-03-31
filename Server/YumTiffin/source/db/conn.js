@@ -12,4 +12,4 @@ mongoose.connect(MONGO_URL)
         console.log(error);
     })
 
-// YumTiffinDB.services.insert()
+// YumTiffinDB.services.insert(v)

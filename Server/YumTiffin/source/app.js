@@ -7,6 +7,7 @@ const hbs = require("hbs");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 
 
@@ -14,6 +15,7 @@ require("./db/conn.js");
 const Register = require("./models/registers");
 const Profile = require('./models/profile');
 const Services = require("./models/tiffinService");
+const services = require('./db/data/services');
 
 
 
@@ -30,10 +32,11 @@ const static_path = path.join(__dirname, "../public");
 const templates_path = path.join(__dirname, "../templates/views");
 const partials_path = path.join(__dirname, "../templates/partials");
 
+
 app.use(express.json());
 app.use(cookieParser())
 app.use(express.urlencoded({ extended: false }))
-
+app.use(cors());
 app.use(express.static(static_path));
 app.set("view engine", ".hbs");
 app.set("views", templates_path);
@@ -72,6 +75,10 @@ app.post("/register", async(req, res) => {
         const password = req.body.password;
         const cPassword = req.body.confirmPassword;
 
+        console.log(req.body.firstName);
+
+        console.log(`${password} and ${cPassword}`);
+
         if (password === cPassword) {
             const registerCustomers = new Register({
 
@@ -83,8 +90,6 @@ app.post("/register", async(req, res) => {
                 confirmPassword: cPassword
             })
 
-            // console.log("the success part: " + registerCustomers);
-
             const token = await registerCustomers.generateAuthToken();
 
             // console.log(`The required token is ${token}`);
@@ -94,7 +99,7 @@ app.post("/register", async(req, res) => {
             const registered = await registerCustomers.save();
             // console.log(`The page part ${registerCustomers}`);
 
-            res.status(201).render("login");
+            res.status(201).redirect("home");
         } else {
             res.send("Password not matching!!")
         }
@@ -110,6 +115,14 @@ app.post("/register", async(req, res) => {
 app.get("/register", (req, res) => {
     res.render("register")
 })
+
+app.get("/checkingMethod", (req, res) => {
+    console.log("Hello!");
+})
+
+
+
+
 
 
 
@@ -161,7 +174,14 @@ app.get("/about", (req, res) => {
 //Redirecting to home page
 app.get("/home", auth, (req, res) => {
     if (auth) {
+        Services.find({ city: "Ahemdabad" }, function(err, Services) {
+            if (err) console.warn(err);
+            console.warn(services);
+        });
+
+        // console.log(req.services);
         console.log(req.user.firstName);
+        // console.log(req.services.name);
         // const newUser = new Profile({
         //     firstName: req.user.firstName
         // })

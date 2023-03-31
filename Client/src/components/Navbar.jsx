@@ -16,9 +16,7 @@ function Section_1_Landingpage() {
           </div>
           
           <div className="nav-links">
-          <a href="/home">
-            HOME
-            </a>
+          
             <a href="/login" target="_blank">
               
               LOGIN

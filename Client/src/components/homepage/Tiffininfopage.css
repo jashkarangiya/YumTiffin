@@ -1,0 +1,112 @@
+.tiffin-info-main
+{
+    width: 50%;
+    /* text-align: center; */
+    margin: auto;
+    overflow-y: hidden;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 19px;
+    padding: 30px;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+     margin-bottom: 20px;
+}
+
+#tiffin-thali-image
+{
+        height: 170px;  
+        width: 350px;
+        border-radius: 15px;
+}
+
+#tiffin-heading 
+{
+    overflow-y: hidden;
+}
+
+.tiffin-type,.tiffin-address,.tiffin-time
+{
+    color: gray;
+}
+
+.hr
+{
+    width: 100%;
+    margin: auto;
+    margin-bottom: 20px;
+    
+}
+
+.menu
+{
+    width: 50%;
+    margin: auto;
+    
+}
+
+.order-online
+{
+    width: 15%;
+    border-bottom: 2px solid orange;
+    color: orange;
+    font-size: larger;
+    font-weight: 700;
+}
+
+#menu-thali
+{
+        height: 130px;
+        margin-right: 20px;
+        border-radius: 15px;
+        width: 130px;
+}
+
+.menudiv
+{
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.dishname
+{
+    font-size: 22px;
+    font-weight: 700px;
+    
+}
+
+.items-name
+{
+    color:gray;
+    font-size: 15px;
+    width: 70%;
+}
+
+.menu-info
+{
+    width: 68%;
+}
+
+
+#add-button
+{
+    margin-top: 25px;
+    padding: 2px 25px;
+    border: 1px solid rgb(168, 167, 167);
+    background-color: white;
+    border-radius: 4px;
+    color: orange;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+#rupee
+{
+    height: 15px;
+}
+
+#price
+{
+    margin-top: 3px;
+}
+

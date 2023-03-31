@@ -1,0 +1,23 @@
+#addbutton {
+    margin-top: 25px;
+    border: 1px solid rgb(168, 167, 167);
+    background-color: white;
+    border-radius: 4px;
+    color: orange;
+    font-weight: 700;
+    letter-spacing: 1px;
+    position: absolute;
+    width: 25%;
+    line-height: 10px;
+    overflow-y: hidden;
+    padding-top: 10px;
+    padding-bottom: 3px;
+}
+
+#addbutton:hover {
+    color: white;
+    background-color: orange;
+}
+
+
+/* #react-modal */
