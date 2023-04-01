@@ -15,6 +15,7 @@ import Tiffininfopage2 from './components/homepage/Tiffininfopage1';
 import Addbutton from './components/homepage/Addbutton';
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
   {
     path: "/scheduleorder",
     element: <Tiffininfopage2/>,
+  },
+  {
+    path: "/cart",
+    element: <userCart/>,
   },
 
   

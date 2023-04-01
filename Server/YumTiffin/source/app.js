@@ -23,7 +23,7 @@ const services = require('./db/data/services');
 const auth = require('./middleware/auth');
 const { log } = require('console');
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 const expires = process.env.JWT_expiresIn;
 
 
@@ -179,7 +179,7 @@ app.get("/home", auth, (req, res) => {
             console.warn(services);
         });
 
-        // console.log(req.services);
+        console.log(req.services);
         console.log(req.user.firstName);
         // console.log(req.services.name);
         // const newUser = new Profile({
@@ -188,6 +188,7 @@ app.get("/home", auth, (req, res) => {
         // console.log(firstName);
 
         // new profile = newUser.save();
+
         res.render("home", { data: req.user.firstName });
     } else {
         console.log(req.cookies.jwt);
@@ -202,7 +203,7 @@ app.get("/profile", auth, async(req, res) => {
     try {
         // console.log(`Name: ${req.user.firstName}`);
 
-        res.render("profile", {
+        res.redirect("profile", {
             post: {
                 firstName: req.user.firstName,
                 lastName: req.user.lastName,

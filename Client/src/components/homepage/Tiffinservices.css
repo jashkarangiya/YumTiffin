@@ -1,27 +1,36 @@
-.total-tiffins
-{
+.total-tiffins {
     font-size: 24px;
     margin-right: 10px;
     color: rgb(77, 77, 77);
 }
 
-.tiffinservices
-{
+.tiffinservices {
     font-size: 24px;
     color: rgb(77, 77, 77);
 }
-.tiffin-count-cont
-{
+
+.tiffin-count-cont {
     margin: 20px;
     margin-left: 50px;
 }
-.tiffins-flex
-{
+
+.tiffins-flex {
     display: flex;
     justify-content: center;
 }
-#tiff
-{
-    width: 100%;
 
+#tiff {
+    width: 100%;
+}
+
+.total-tiifins-search {
+    display: flex;
+    justify-content: space-between;
+}
+
+#form2 {
+    background-color: rgba(255, 255, 255, 0.564);
+    width: 100%;
+    box-shadow: none;
+    margin-bottom: 150px;
 }

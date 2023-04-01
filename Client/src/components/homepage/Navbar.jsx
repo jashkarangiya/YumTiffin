@@ -21,12 +21,9 @@ function NavScrollExample() {
             navbarScroll 
           >
             
-            <Nav.Link id='navl' href="#action2"><img src={Cart} id='navicon'></img></Nav.Link>
+            <Nav.Link id='navl' href="/cart"><img src={Cart} id='navicon'></img></Nav.Link>
            
-           
-  
-
-              <Nav.Link id='navl' href="#action2"><img src={User} id='navicon'></img></Nav.Link>
+            <Nav.Link id='navl' href="/profile" action="/profile"><img src={User} id='navicon'></img></Nav.Link>
    
           
             

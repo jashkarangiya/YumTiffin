@@ -15,7 +15,7 @@ export default class Loginpage extends PureComponent {
                 <p id="Login-heading"> Login to continue </p>
               </div>{" "}
               <form
-                name="signin"
+                name="login"
                 className="form"
                 action="/login"
                 method="POST"
