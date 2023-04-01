@@ -15,10 +15,10 @@ export default class Tiffininfopage extends PureComponent {
         <div className="tiffin-info-main">
           <div className="tiffin-info">
             <div className="tiffin-heading">
-              <h1 id="tiffin-heading">Shiv Tiffin</h1>
+              <h1 id="tiffin-heading">The Krishnans</h1>
             </div>
-            <div className="tiffin-type">North indian</div>
-            <div className="tiffin-address">109,kalakung</div>
+            <div className="tiffin-type">North Indian</div>
+            <div className="tiffin-address">109, Kalakung</div>
             <div className="tiffin-time">
               Timings available:
               <div>Morning:10:00 am to 2:00 pm</div>
