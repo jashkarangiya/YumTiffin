@@ -1,0 +1,51 @@
+#app {
+    background-color: transparent;
+    border-radius: 4px;
+    padding-top: 5px;
+    
+}
+
+#b
+{
+  background-color: transparent;
+  border: none;
+}
+#logout
+{
+  background-color: orange;
+  margin-top: 10px;
+  letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 12px;
+
+}
+    .card-text-start{
+      width: 250px;
+    height: 300px;
+    overflow: auto;
+    background-color: white;
+    border-radius: 10px;
+
+    }
+
+    #circle-avatar {
+     
+      display: grid;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #ffbd30;
+      place-items: center;
+    }
+    #c
+    {
+      overflow-y: hidden;
+      padding-bottom: 10px;
+    }
+      #nameinitial {
+        font-size: 48px;
+        font-weight: bold;
+      }
+
+     

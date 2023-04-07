@@ -1,2 +1,0 @@
-To run server - node (file destination)
-Always run nodeman after starting server npm run dev
