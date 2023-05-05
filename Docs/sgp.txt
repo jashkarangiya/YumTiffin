@@ -1,0 +1,24 @@
+user side 
+
+//landing page
+-login 
+-sign in
+-location dropdown//
+-add advantages etc
+-services provided
+-visitors count//
+
+//home page
+-nav bar(search , logo ,profile,cart)
+-tiffin providers details
+
+//information of tiffin providers
+-menu
+-contact details
+-price 
+-address
+-description
+
+
+frontend extra
+-dark mode
