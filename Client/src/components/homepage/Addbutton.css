@@ -19,5 +19,98 @@
     background-color: orange;
 }
 
+#react-modal {
+    width: 45%;
+    height: 71%;
+    margin: auto;
+}
+
+ReactModal__Overlay {
+    position: fixed;
+    inset: 0px;
+    background-color: rgba(137, 137, 137, 0.75);
+}
+
+.Overlay {
+    background-color: rgba(137, 137, 137, 0.75);
+}
+
+.popup-heading1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: orange;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.meal-type-div {
+    display: flex;
+    justify-content: space-around;
+}
+
+.type-flex {
+    margin: 20px 20px 20px 20px;
+}
+
+#typeofmeal {
+    font-size: 20px;
+    color: gray;
+    font-weight: 700;
+    letter-spacing: 1px;
+    TEXT-ALIGN: initial;
+    MARGIN-LEFT: 50PX;
+    margin-bottom: 10px;
+}
+
+#type1,
+#type2,
+#type3 {
+    margin-right: 10px;
+    accent-color: orange;
+}
+
+#type-label {
+    color: gray;
+    font-size: 18px;
+}
+
+.number-of-meals {
+    font-size: 20px;
+    color: gray;
+    font-weight: 700;
+    letter-spacing: 1px;
+    TEXT-ALIGN: initial;
+    MARGIN-LEFT: 50PX;
+    margin-bottom: 10px;
+}
+
+.nom {
+    margin-top: 50px;
+    display: flex;
+    margin-bottom: 40px;
+    justify-content: space-between;
+}
+
+#nom {
+    margin-left: 40px;
+    width: 50%;
+    padding-right: 3px;
+}
+
+.placeorder {
+    display: flex;
+    justify-content: center;
+}
+
+#placeorder {
+    margin-top: 30px;
+    padding: 5px 30px;
+    background-color: orange;
+    border: none;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
 
 /* #react-modal */

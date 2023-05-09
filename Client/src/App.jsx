@@ -13,7 +13,7 @@ import Signuppage from './components/Signuppage';
 import Tiffininfopage1 from './components/homepage/Tiffininfopage1';
 import Tiffininfopage2 from './components/homepage/Tiffininfopage1';
 import Addbutton from './components/homepage/Addbutton';
-
+import Cart from './components/Cart';
 
 
 const router = createBrowserRouter([
@@ -47,11 +47,13 @@ const router = createBrowserRouter([
   },
   {
     path: "/cart",
-    element: <userCart/>,
+    element: <Cart/>,
   },
 
   
 ]);
+
+// export const userSelector = (state) => useSelector((state) => state.user);
 
 function App(){
   return (

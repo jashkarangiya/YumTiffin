@@ -9,10 +9,16 @@ import thali7 from "../../images/thali7.jpeg";
 import thali8 from "../../images/thali8.jpeg";
 import thali9 from "../../images/thali9.jpeg";
 
+
+
 export default class TiffinCard extends PureComponent {
-    // this.state={
-    //     val
-    // }
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      city: ""
+    };
+  }
   render() {
     const services = [
       {
@@ -221,18 +227,23 @@ export default class TiffinCard extends PureComponent {
         </div>{" "}
         <div>
 
-        <select className="form-control me-2" id="form1">
+        <select className="form-control me-2" id="form1"
+        value={this.state.city} 
+        onChange={(e) => {
+          this.setState({ city: e.target.value });
+        }}>
        
-       <option value="Anand">  Anand</option>{" "}
-       <option value="Ahemdabad">  Ahemdabad</option>{" "}
-       <option value="Nadiad">  Nadiad</option>{" "}
+       <option value="Anand" >Anand</option>{" "}
+       <option value="Ahmedabad" >Ahemdabad</option>{" "}
+       <option value="Nadiad" >Nadiad</option>{" "}
      </select>
         </div>
         
         {/* <hr> </hr>\ */}
       </div>
+      
         <div className="main-container">
-          {services.filter(d => d.city ==='Anand').map((oneCard, i) => (
+          {services.filter(d => d.city === this.state.city).map((oneCard, i) => (
             <div className="card-cont">
             {/* // ep */}
             {/* <div className="card-cont"  onClick={() => this.handleClick(i)}> */}
@@ -250,179 +261,6 @@ export default class TiffinCard extends PureComponent {
               </a>
             </div>
           ))}
-
-          {/* <div className="card-cont">
-            <a href="/info" id="tiffin-anchor">
-              <div className="card-img">
-                <img src={tiffin1} id="cimg"/>
-                  {" "}
-                {" "}
-              </div>{" "}
-              <div className="tiffin-provider">
-                <p className="tiffinname">Shiv tiffins </p>{" "}
-                <p className="foodtype">North indian </p> <hr id="hrline" />{" "}
-                <p className="quickview">QUICK VIEW </p>
-              </div>{" "}
-            </a>
-          </div>{" "}
-          <div class="card-details">
-            {" "}
-            I am shown when someone hovers over the div above.{" "}
-          </div>{" "}
-          <div className="card-cont">
-            <a href="/info" id="tiffin-anchor">
-              <div className="card-img">
-                <img src={thali3} id="cimg"/>
-                  {" "}
-                {" "}
-              </div>{" "}
-              <div className="tiffin-provider">
-                <p className="tiffinname">Hinaben Tiffins </p>{" "}
-                <p className="foodtype">Gujrati </p> <hr id="hrline" />{" "}
-                <p className="quickview">QUICK VIEW </p>{" "}
-              </div>{" "}
-            </a>{" "}
-          </div>{" "}
-          <div className="card-cont">
-            <a href="/info" id="tiffin-anchor">
-              <div className="card-img">
-                <img src={thali4} id="cimg"/>
-                  {" "}
-                {" "}
-              </div>{" "}
-              <div className="tiffin-provider">
-                <p className="tiffinname">Sangatis </p>{" "}
-                <p className="foodtype">South indian </p> <hr id="hrline" />{" "}
-                <p className="quickview">QUICK VIEW </p>{" "}
-              </div>{" "}
-            </a>{" "}
-          </div>{" "}
-          <div className="card-cont">
-            <a href="/info" id="tiffin-anchor">
-              <div className="card-img">
-                <img src={thali5} id="cimg"/>
-                  {" "}
-                {" "}
-              </div>{" "}
-              <div className="tiffin-provider">
-                <p className="tiffinname">Harekrishna tiffins </p>{" "}
-                <p className="foodtype">North indian </p> <hr id="hrline" />{" "}
-                <p className="quickview">QUICK VIEW </p>{" "}
-              </div>{" "}
-            </a>{" "}
-          </div>{" "}
-          <div className="card-cont">
-            <a href="/info" id="tiffin-anchor">
-              <div className="card-img">
-                <img src={thali6} id="cimg"/>
-                  {" "}
-                {" "}
-              </div>{" "}
-              <div className="tiffin-provider">
-                <p className="tiffinname">Shiv tiffins </p>{" "}
-                <p className="foodtype">North indian </p> <hr id="hrline" />{" "}
-                <p className="quickview">QUICK VIEW </p>{" "}
-              </div>{" "}
-            </a>{" "}
-          </div>{" "}
-          <div className="card-cont">
-            <a href="/info" id="tiffin-anchor">
-              <div className="card-img">
-                <img src={thali7} id="cimg"/>
-                  {" "}
-                {" "}
-              </div>{" "}
-              <div className="tiffin-provider">
-                <p className="tiffinname">Shiv tiffins </p>{" "}
-                <p className="foodtype">North indian </p> <hr id="hrline" />{" "}
-                <p className="quickview">QUICK VIEW </p>{" "}
-              </div>{" "}
-            </a>{" "}
-          </div>{" "}
-          <div className="card-cont">
-            <a href="/info" id="tiffin-anchor">
-              <div className="card-img">
-                <img src={thali8} id="cimg"/>
-                  {" "}
-                {" "}
-              </div>{" "}
-              <div className="tiffin-provider">
-                <p className="tiffinname">Shiv tiffins </p>{" "}
-                <p className="foodtype">North indian </p> <hr id="hrline" />{" "}
-                <p className="quickview">QUICK VIEW </p>{" "}
-              </div>{" "}
-            </a>{" "}
-          </div>{" "}
-          <div className="card-cont">
-            <a href="/info" id="tiffin-anchor">
-              <div className="card-img">
-                <img src={thali9} id="cimg"/>
-                  {" "}
-                {" "}
-              </div>{" "}
-              <div className="tiffin-provider">
-                <p className="tiffinname">Shiv tiffins </p>{" "}
-                <p className="foodtype">North indian </p> <hr id="hrline" />{" "}
-                <p className="quickview">QUICK VIEW </p>{" "}
-              </div>{" "}
-            </a>{" "}
-          </div>{" "}
-          <div className="card-cont">
-            <a href="/info" id="tiffin-anchor">
-              <div className="card-img">
-                <img src={tiffin1} id="cimg"/>
-                  {" "}
-                {" "}
-              </div>{" "}
-              <div className="tiffin-provider">
-                <p className="tiffinname">Shiv tiffins </p>{" "}
-                <p className="foodtype">North indian </p> <hr id="hrline" />{" "}
-                <p className="quickview">QUICK VIEW </p>{" "}
-              </div>{" "}
-            </a>{" "}
-          </div>{" "}
-          <div className="card-cont">
-            <a href="/info" id="tiffin-anchor">
-              <div className="card-img">
-                <img src={tiffin1} id="cimg"/>
-                  {" "}
-                {" "}
-              </div>{" "}
-              <div className="tiffin-provider">
-                <p className="tiffinname">Shiv tiffins </p>{" "}
-                <p className="foodtype">North indian </p> <hr id="hrline" />{" "}
-                <p className="quickview">QUICK VIEW </p>{" "}
-              </div>{" "}
-            </a>{" "}
-          </div>{" "}
-          <div className="card-cont">
-            <a href="/info" id="tiffin-anchor">
-              <div className="card-img">
-                <img src={tiffin1} id="cimg"/>
-                  {" "}
-                {" "}
-              </div>{" "}
-              <div className="tiffin-provider">
-                <p className="tiffinname">Shiv tiffins </p>{" "}
-                <p className="foodtype">North indian </p> <hr id="hrline" />{" "}
-                <p className="quickview">QUICK VIEW </p>{" "}
-              </div>{" "}
-            </a>{" "}
-          </div>{" "}
-          <div className="card-cont">
-            <a href="/info" id="tiffin-anchor">
-              <div className="card-img">
-                <img src={tiffin1} id="cimg"/>
-                  {" "}
-                {" "}
-              </div>{" "}
-              <div className="tiffin-provider">
-                <p className="tiffinname">Shiv tiffins </p>{" "}
-                <p className="foodtype">North indian </p> <hr id="hrline" />{" "}
-                <p className="quickview">QUICK VIEW </p>{" "}
-              </div>{" "}
-            </a>{" "}
-          </div>{" "} */}
         </div>{" "}
       </>
     );
