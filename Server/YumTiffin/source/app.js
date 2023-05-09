@@ -179,6 +179,8 @@ app.get("/home", auth, (req, res) => {
             console.warn(services);
         });
 
+
+
         console.log(req.services);
         console.log(req.user.firstName);
         // console.log(req.services.name);
