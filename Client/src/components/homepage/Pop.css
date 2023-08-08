@@ -23,4 +23,6 @@
     width: 5%;
     line-height: 10px;
     overflow-y: hidden;
+    padding-bottom: 10px;
+    padding-left: 20px;
 }

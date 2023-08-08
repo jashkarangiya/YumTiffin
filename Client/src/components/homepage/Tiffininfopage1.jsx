@@ -21,8 +21,8 @@ export default class Tiffininfopage extends PureComponent {
             <div className="tiffin-address">109, Kalakung</div>
             <div className="tiffin-time">
               Timings available:
-              <div>Morning:10:00 am to 2:00 pm</div>
-              <div>Evening:7:00 pm to 10:00 pm</div>
+              <div>Morning: 10:00 am to 2:00 pm</div>
+              <div>Evening: 7:00 pm to 10:00 pm</div>
             </div>
           </div>
           <div className="">
@@ -39,7 +39,7 @@ export default class Tiffininfopage extends PureComponent {
               <img src={thaliimg1} id="menu-thali" />
             </div>
             <div className="menu-info">
-              <div className="dishname">Gujrati Thali</div>
+              <div className="dishname">Gujarati Thali</div>
               <div className="items-name">
                 mix-veg sabji ,kathol ,dal ,bhat ,roti x4, buttermilk, pickle,
                 salad , papad
